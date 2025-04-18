@@ -50,6 +50,11 @@ The project is organized into separate `frontend` and `backend` folders for modu
 │   ├── .env
 │   ├── .eslintrc.json
 │   └── README.md
+
+
+
+
+
 ├── /backend                # Node.js backend code
 │   ├── /src
 │   │   ├── /config        # Configuration (DB, env)
