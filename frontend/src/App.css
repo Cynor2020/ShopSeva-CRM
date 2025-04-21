@@ -40,3 +40,72 @@
 .read-the-docs {
   color: #888;
 }
+
+
+
+
+
+/* signup page */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #f1f1f1;
+}
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signup-form {
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.signup-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.signup-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+.signup-form button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signup-form button:hover {
+  background: #0056b3;
+}
+
+.signup-form p {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+.signup-form a {
+  color: #007bff;
+  text-decoration: none;
+}
+.signup-form a:hover {
+  text-decoration: underline;
+}
