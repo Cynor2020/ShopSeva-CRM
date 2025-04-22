@@ -1,15 +1,36 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors');
-const dotenv = require('dotenv');
 
-dotenv.config();
 const app = express();
-
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 
-app.get('/', (req, res) => {
-  res.send('Shop Seva CRM Backend');
+// MongoDB connection
+mongoose.connect('mongodb://localhost:27017/shopseva-crm', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.log(err));
+
+// User Schema
+const userSchema = new mongoose.Schema({
+  fullName: String,
+  email: String,
+  password: String,
+});
+const User = mongoose.model('User', userSchema);
+
+// Signup route
+app.post('/api/signup', async (req, res) => {
+  const { fullName, email, password } = req.body;
+  const newUser = new User({ fullName, email, password });
+  try {
+    await newUser.save();
+    res.status(201).json({ message: 'User registered successfully' });
+  } catch (error) {
+    res.status(400).json({ message: 'Error registering user', error });
+  }
 });
 
 const PORT = process.env.PORT || 5000;
