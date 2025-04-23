@@ -53,7 +53,7 @@ const SignUp = () => {
           required
         />
         <button type="submit">Sign Up</button>
-        <p>Already have an account? <a href="#">Login</a></p>
+        <p>Already have an account? <a href="SignUp">Login</a></p>
       </form>
     </div>
   );
