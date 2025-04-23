@@ -6,14 +6,34 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) {
       setError('Please fill in all fields');
       return;
     }
-    setError('');
-    console.log('Login attempted with:', { email, password });
+
+    try {
+      const response = await fetch('http://localhost:5000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setError('');
+        console.log('Login successful:', data.user);
+        alert('Login successful! Welcome ' + data.user.fullName);
+      } else {
+        setError(data.message || 'Login failed');
+      }
+    } catch (err) {
+      setError('Something went wrong. Please try again.');
+    }
   };
 
   return (
