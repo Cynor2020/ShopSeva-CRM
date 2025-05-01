@@ -158,3 +158,10 @@ The project is organized into separate `frontend` and `backend` folders for modu
 
 ## License
 This project is licensed under the MIT License.
+
+
+
+
+require how to run 
+
+ npm install tailwindcss @tailwindcss/vite
